@@ -1,0 +1,27 @@
+{
+  "name": "peek-population",
+  "version": "1.0.0",
+  "description": "Our population's data visualized, using D3.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lexscher/peek-population.git"
+  },
+  "keywords": [
+    "D3.js",
+    "Earth",
+    "Population",
+    "Data",
+    "Visualization",
+    "JavaScript"
+  ],
+  "author": "Alexander Schelchere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lexscher/peek-population/issues"
+  },
+  "homepage": "https://github.com/Lexscher/peek-population#readme"
+}
