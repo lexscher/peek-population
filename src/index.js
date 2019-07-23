@@ -73,7 +73,7 @@ function getCountriesOnDom(data) {
   d3.selectAll('svg > *').remove();
   svg
     .selectAll('rect') // <~ Create x number of rectangles
-    .data(data) // <~ Based on the number of items inn our array of data
+    .data(data) // <~ Based on the number of items in our array of data
     .enter() // <~ enter the svg
     .append('rect') // <~ append the rectangle
     .attr('x', (d, i) => i * 21) // <~ starting postion (x axis)
