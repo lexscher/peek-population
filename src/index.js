@@ -7,17 +7,17 @@ var regionsList = d3.select('.regions');
 var svg = d3.select('svg');
 
 // add styles
-  // Body
+// Body
 body.style('background-color', '#F5F7DC').style('color', '#0F0326');
-  // Nav bar
+// Nav bar
 nav.style('background-color', '#FFFF82');
 regionsList
   .style('list-style-type', 'none')
   .style('display', 'flex')
   .style('justify-content', 'space-around');
-  
-  // height of svg
-  var h = 450
+
+// height of svg
+var h = 450;
 
 // This will change every time we click on a region
 var currentRegion;
@@ -82,6 +82,25 @@ function getCountriesOnDom(data) {
     .attr('x', (d, i) => i * 21) // <~ starting postion (x axis)
     .attr('y', d => h - (d.population / 100000 + 1)) // <~ starting position (y axis)
     .attr('width', 20) // <~ width for each rectangle
-    .attr('height', d =>  d.population / 100000 + 1) // <~ Height of rectangle based on the population
+    .attr('height', d => d.population / 100000 + 1) // <~ Height of rectangle based on the population
     .style('fill', '#E65F5C'); // <~ Change bar's color
+
+  svg
+    .selectAll('text') // <~ Create x number of text
+    .data(data) // <~ Based on the number of items in our array of data
+    .enter() // <~ enter the svg
+    .append('text') // <~ append the text
+    .text(d => `${d.name} - ${d.population}`) // <~ Write text
+    .attr('text-anchor', 'right') // <~ Have the text start where
+    .attr('transform', 'rotate(-90)') // <~ rotate text container sideways --
+    // Because we rotate the whole container, finding the right x and y positioning becomes a tad complicated.
+    .attr('x', (d, i) => i * 21 - (h + i * 21) + 5) // <~ starting postion (x axis)
+    .attr('y', (d, i) => i * 21 + h / 24) // <~ starting position (y axis)
+    // Add styles
+    .style('font-family', 'sans-serif')
+    .style('font-weight', 'bold')
+    .style('font-size', '1rem')
+    .style('fill', 'black');
 }
+
+
