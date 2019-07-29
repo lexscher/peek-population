@@ -7,14 +7,17 @@ var regionsList = d3.select('.regions');
 var svg = d3.select('svg');
 
 // add styles
+  // Body
 body.style('background-color', '#F5F7DC').style('color', '#0F0326');
-
+  // Nav bar
 nav.style('background-color', '#FFFF82');
-
 regionsList
   .style('list-style-type', 'none')
   .style('display', 'flex')
   .style('justify-content', 'space-around');
+  
+  // height of svg
+  var h = 450
 
 // This will change every time we click on a region
 var currentRegion;
@@ -77,9 +80,8 @@ function getCountriesOnDom(data) {
     .enter() // <~ enter the svg
     .append('rect') // <~ append the rectangle
     .attr('x', (d, i) => i * 21) // <~ starting postion (x axis)
-    .attr('y', 200) // <~ starting position (y axis)
+    .attr('y', d => h - (d.population / 100000 + 1)) // <~ starting position (y axis)
     .attr('width', 20) // <~ width for each rectangle
-    .attr('height', d => d.population / 100000 + 1) // <~ Height of rectangle based on the population
+    .attr('height', d =>  d.population / 100000 + 1) // <~ Height of rectangle based on the population
     .style('fill', '#E65F5C'); // <~ Change bar's color
 }
-
